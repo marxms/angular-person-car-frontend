@@ -8,7 +8,7 @@ import {ApiResponse} from "../model/api.response";
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'https://springboot-person-cars-api.herokuapp.com/users';
+  baseUrl: string = 'https://springboot-person-cars-api.herokuapp.com/users/';
 
   login(loginPayload) : Observable<ApiResponse> {
     return this.http.post<ApiResponse>('https://springboot-person-cars-api.herokuapp.com/' + 'users/signin', loginPayload);
