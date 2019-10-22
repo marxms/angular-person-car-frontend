@@ -1,0 +1,50 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Add User</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="login">User Name:</label>
+      <input type="text" formControlName="login" placeholder="username" name="login" class="form-control" id="login">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <input type="email" formControlName="email" placeholder="email" name="eamil" class="form-control" id="email">
+    </div>
+
+    <div class="form-group">
+      <label for="birthday">Birthday:</label>
+      <input type="date" formControlName="birthday" placeholder="birthday" name="birthday" class="form-control" id="birthday">
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone number:</label>
+        <input type="number" formControlName="phone" placeholder="phone" name="phone" class="form-control" id="phone">
+      </div>
+    <div>
+        <button (click)="addCars()" type="button">Add</button>
+          <div formArrayName="cars" *ngFor="let car of addForm.controls.cars?.value; let i = index; trackBy:cmpare;">
+              <ng-container [formGroupName]="i">
+                <input type="number" placeholder="Year" formControlName="year">
+                <input type="text" placeholder="Model" formControlName="model">
+                <input type="text" placeholder="Color" formControlName="color">
+                <input type="text" placeholder="License Plate" formControlName="licensePlate">
+              </ng-container>
+            </div>
+    </div>
+    <button class="btn btn-success" type="submit">Add</button>
+  </form>
+</div>
